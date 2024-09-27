@@ -18,7 +18,7 @@ class DormInfo(models.Model):
     DORM_CLASS_CHOICES = [
         ('A', 'A'),
         ('B', 'B'),
-        ('C', 'C'),
+        
     ]
     DORM_TYPE_CHOICES = [
         ('solo', 'Solo'),
@@ -68,7 +68,6 @@ class Bookings(models.Model):
     booking_id = models.CharField(max_length=255, primary_key=True)
     user = models.ForeignKey(TenantProfile, on_delete=models.CASCADE)
     dorm = models.ForeignKey(DormInfo, on_delete=models.CASCADE)
-    transaction = models.ForeignKey(TransactionLog, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     book_status = models.CharField(max_length=20, choices=BOOK_STATUS_CHOICES)
 
